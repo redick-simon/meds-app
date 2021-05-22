@@ -1,0 +1,27 @@
+<div class="form-group col-xs-12">
+    <label>Search By Name</label>
+    <input type="text" class="form-control" [(ngModel)]="filterName">
+</div>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">ExpiryDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="bodyRow" *ngFor="let med of medicines | filter:filterName; let i =index" 
+        [routerLink]="['/medicine', i]" 
+        [ngStyle]="{backgroundColor: getColor(med)}">
+            <td>{{med.name}}</td>
+            <td>{{med.brand}}</td>
+            <td>{{med.price | number: '1.2-2'}}</td>
+            <td>{{med.quantity}}</td>
+            <td>{{med.expiryDate | date:"yyyy-MM-dd"}}</td>
+        </tr>
+    </tbody>
+</table>

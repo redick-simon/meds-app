@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6" *ngIf="medicine">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Name : </strong><em>{{medicine.name}}</em>
+                </li>
+                <li class="list-group-item">
+                    <strong>Brand : </strong><em>{{medicine.brand}}</em>
+                </li>
+                <li class="list-group-item">
+                    <strong>Price : </strong><em>{{medicine.price}}</em>
+                </li>
+                <li class="list-group-item">
+                    <strong>Quantity : </strong><em>{{medicine.quantity}}</em>
+                </li>
+                <li class="list-group-item">
+                    <strong>ExpiryDate : </strong><em>{{medicine.expiryDate | date:"yyyy-MM-dd"}}</em>
+                </li>
+                <li class="list-group-item" 
+                style="cursor: pointer">
+                    <strong>Notes : </strong><em>{{medicine.notes}}</em>
+                </li>
+            </ul>
+        </div>        
+    </div>
+    <button class="btn btn-primary" (click)="onClickBack()">BackToList</button>
+</div>

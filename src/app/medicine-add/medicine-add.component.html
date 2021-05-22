@@ -1,0 +1,41 @@
+<div class="container" *ngIf="medForm">
+    <div class="row">
+        <div class="col-xs-6">
+            <form [formGroup]="medForm" (ngSubmit)="onAddMed()">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <span 
+                *ngIf="!medForm.get('name')?.valid && medForm.get('name')?.touched"
+                class="help-block">Please provide medicine name</span>
+                <label for="brand">Brand</label>
+                <input type="text" class="form-control" id="brand" formControlName="brand">
+                <span 
+                *ngIf="!medForm.get('brand')?.valid && medForm.get('brand')?.touched"
+                class="help-block">Please provide brand name</span>
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" 
+                formControlName="price">
+                <span 
+                *ngIf="!medForm.get('price')?.valid && medForm.get('price')?.touched"
+                class="help-block">Please provide price</span>
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" 
+                formControlName="quantity">
+                <span 
+                *ngIf="!medForm.get('quantity')?.valid && medForm.get('quantity')?.touched"
+                class="help-block">Please provide quantity</span>
+                <label for="expiryDate">ExpiryDate</label>
+                <input type="date" class="form-control" id="expiryDate"
+                formControlName="expiryDate">
+                <span 
+                *ngIf="!medForm.get('expiryDate')?.valid && medForm.get('expiryDate')?.touched"
+                class="help-block">Please provide valid expiryDate</span>
+                <label for="notes">Notes</label>
+                <textarea type="text" class="form-control" id="notes"
+                formControlName="notes" rows="3"></textarea>
+                <hr>
+                <button class="btn btn-primary" type="submit" [disabled]="!medForm.valid">Add Medicine</button>
+            </form>
+        </div>
+    </div>
+</div>
